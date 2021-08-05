@@ -12,7 +12,9 @@ function loadData(records = []) {
         table_data += `<td>${records[i].project_start_date}</td>`;
         table_data += `<td>${records[i].project_deadline}</td>`;
         table_data += `<td>${records[i].no_of_employees}</td>`;
+        table_data += `<td>`;
         table_data += `<a href="editproject.html?id=${records[i]._id}"><button class="btn btn-primary">Edit</button></a>`;
+        table_data += '&nbsp;&nbsp;&nbsp;&nbsp';
         table_data += `<button class="btn btn-danger" onclick=deleteData('${records[i]._id}')>Delete</button>`;
         table_data += `</td>`;
         table_data += `</tr>`;
