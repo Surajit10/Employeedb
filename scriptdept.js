@@ -34,9 +34,12 @@ function getDataById(id) {
     fetch(`${api_url}/${id}`)
         .then((response) => response.json())
         .then((data) => {
-            console.log("this point")
             console.log(data)
-            document.getElementById("id").value = id;
+            console.log(data[0]._id)
+            document.getElementById("id").value = data[0]._id;
+            document.getElementById("dept_name").value = data[0].dept_name;
+            document.getElementById("dept_location").value=data[0].dept_location;
+            document.getElementById("dept_inchargename").value=data[0].dept_incharge_name;
         })
 }
 
