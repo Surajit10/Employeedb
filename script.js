@@ -42,9 +42,18 @@ function getDataById(id) {
     fetch(`${api_url}/${id}`)
         .then((response) => response.json())
         .then((data) => {
-            console.log("this point")
             console.log(data)
-            document.getElementById("id").value = id;
+            document.getElementById("name").value=data[0].emp_name
+            document.getElementById("email").value=data[0].emp_email;
+            document.getElementById("mobileno").value=data[0].emp_mobileno;
+            document.getElementById("dob").value=data[0].Date_of_birth;
+            document.getElementById("job_name").value=data[0].job_name;
+            document.getElementById("doj").value=data[0].Date_of_Joining;
+            document.getElementById("salary").value=data[0].Salary;
+            document.getElementById("comission").value=data[0].Comission;
+            document.getElementById("address").value=data[0].Address;
+            document.getElementById("department").value=data[0].department;
+            document.getElementById("manager_name").value=data[0].managers_name;
         })
 }
 
