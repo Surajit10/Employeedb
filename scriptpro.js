@@ -37,9 +37,16 @@ function getDataById(id) {
     fetch(`${api_url}/${id}`)
         .then((response) => response.json())
         .then((data) => {
-            console.log("this point")
+            console.log("hello")
             console.log(data)
-            document.getElementById("id").value = id;
+            console.log(data[0]._id)
+            document.getElementById("id").value=data[0]._id;
+            document.getElementById("project_name").value=data[0].project_name;
+            document.getElementById("project_manager").value=data[0].project_manager;
+            document.getElementById("project_capital").value=data[0].project_capital;
+            document.getElementById("psdate").value=data[0].project_start_date;
+            document.getElementById("psddate").value=data[0].project_deadline;
+            document.getElementById("no_of_employees").value=data[0].no_of_employees;
         })
 }
 
@@ -51,7 +58,7 @@ function postData() {
     var p_psdate = document.getElementById("psdate").value;
     var p_psddate = document.getElementById("psddate").value;
     var p_emp = document.getElementById("no_of_employees").value;
-    data = { project_name: p_name, project_manager: p_manager, project_capital: p_capital, project_start_date: p_psdate, project_deadline: p_psddate, no_of_employees: p_emp};
+    data = { project_name: p_name, project_manager: p_manager, project_capital: p_capital, project_start_date: p_psdate, project_deadline: p_psddate, no_of_employees: p_emp };
 
 
     fetch(api_url, {
@@ -72,13 +79,17 @@ function postData() {
 
 function putData() {
 
+    var _id = document.getElementById("id").value;
     var p_name = document.getElementById("project_name").value;
     var p_manager = document.getElementById("project_manager").value;
     var p_capital = document.getElementById("project_capital").value;
     var p_psdate = document.getElementById("psdate").value;
     var p_psddate = document.getElementById("psddate").value;
     var p_emp = document.getElementById("no_of_employees").value;
-    data = { project_name: p_name, project_manager: p_manager, project_capital: p_capital, project_start_date: p_psdate, project_deadline: p_psddate, no_of_employees: p_emp};
+    data = { _id: _id,project_name: p_name, project_manager: p_manager, 
+        project_capital: p_capital, project_start_date: p_psdate, 
+        project_deadline: p_psddate, 
+        no_of_employees: p_emp };
     console.log("Hello World");
     console.log(data)
     fetch(api_url, {
