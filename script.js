@@ -43,6 +43,7 @@ function getDataById(id) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
+            document.getElementById("id").value = data[0]._id;
             document.getElementById("name").value=data[0].emp_name
             document.getElementById("email").value=data[0].emp_email;
             document.getElementById("mobileno").value=data[0].emp_mobileno;
